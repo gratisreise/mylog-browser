@@ -1,0 +1,231 @@
+@import "tailwindcss";
+
+@plugin "tailwindcss-animate";
+
+@custom-variant dark (&:is(.dark *));
+
+@theme {
+  --font-sans: "Inter", sans-serif;
+  --font-mono: "JetBrains Mono", monospace;
+
+  --color-background: hsl(var(--background));
+  --color-foreground: hsl(var(--foreground));
+
+  --color-card: hsl(var(--card));
+  --color-card-foreground: hsl(var(--card-foreground));
+
+  --color-popover: hsl(var(--popover));
+  --color-popover-foreground: hsl(var(--popover-foreground));
+
+  --color-primary: hsl(var(--primary));
+  --color-primary-foreground: hsl(var(--primary-foreground));
+
+  --color-secondary: hsl(var(--secondary));
+  --color-secondary-foreground: hsl(var(--secondary-foreground));
+
+  --color-muted: hsl(var(--muted));
+  --color-muted-foreground: hsl(var(--muted-foreground));
+
+  --color-accent: hsl(var(--accent));
+  --color-accent-foreground: hsl(var(--accent-foreground));
+
+  --color-destructive: hsl(var(--destructive));
+  --color-destructive-foreground: hsl(var(--destructive-foreground));
+
+  --color-border: hsl(var(--border));
+  --color-input: hsl(var(--input));
+  --color-ring: hsl(var(--ring));
+
+  --radius-lg: var(--radius);
+  --radius-md: calc(var(--radius) - 2px);
+  --radius-sm: calc(var(--radius) - 4px);
+
+  /* Design System Custom Colors */
+  --color-bg-level-0: var(--bg-level-0);
+  --color-bg-level-1: var(--bg-level-1);
+  --color-bg-level-2: var(--bg-level-2);
+  --color-bg-level-3: var(--bg-level-3);
+  --color-border-default: var(--border-default);
+  --color-border-hover: var(--border-hover);
+  --color-primary-dim: var(--primary-dim);
+  --color-accent-violet: var(--accent);
+  --color-text-primary: var(--text-primary);
+  --color-text-secondary: var(--text-secondary);
+  --color-text-tertiary: var(--text-tertiary);
+
+  /* Design System 2 Tokens */
+  --color-bg-page: var(--bg-page);
+  --color-bg-card: var(--bg-card);
+  --color-bg-input: var(--bg-input);
+  --color-border-base: var(--border-base);
+  --color-primary-glow: var(--primary-glow);
+  --color-primary-muted: var(--primary-muted);
+  --color-destructive-bg: var(--destructive-bg);
+
+  /* Design System 3 Tokens */
+  --color-bg-color: var(--bg-color);
+  --color-surface-color: var(--surface-color);
+  --color-surface-hover: var(--surface-hover);
+  --color-border-color: var(--border-color);
+  --color-primary-color: var(--primary-color);
+  --color-primary-hover: var(--primary-hover);
+  --color-danger-color: var(--danger-color);
+  --color-success-color: var(--success-color);
+}
+
+@layer base {
+  :root {
+    /* Using light mode defaults but aligning with the new scheme if necessary.
+       Since design focuses on dark mode, we can maintain basic lighter variants or map directly to dark for a pure dark app.
+       Let's stick to shadcn defaults for light mode, slightly tweaked if needed, but the main focus is .dark */
+    --background: 0 0% 100%;
+    --foreground: 222.2 84% 4.9%;
+
+    --card: 0 0% 100%;
+    --card-foreground: 222.2 84% 4.9%;
+
+    --popover: 0 0% 100%;
+    --popover-foreground: 222.2 84% 4.9%;
+
+    --primary: 234 55% 60%;
+    --primary-foreground: 210 40% 98%;
+
+    --secondary: 210 40% 96.1%;
+    --secondary-foreground: 222.2 47.4% 11.2%;
+
+    --muted: 210 40% 96.1%;
+    --muted-foreground: 215.4 16.3% 46.9%;
+
+    --accent: 210 40% 96.1%;
+    --accent-foreground: 222.2 47.4% 11.2%;
+
+    --destructive: 0 84.2% 60.2%;
+    --destructive-foreground: 210 40% 98%;
+
+    --border: 214.3 31.8% 91.4%;
+    --input: 214.3 31.8% 91.4%;
+    --ring: 234 55% 60%;
+
+    --radius: 0.5rem;
+
+    /* Design System Tokens (Mapped to linear-colortheme.json) */
+    --bg-level-0: #08090a;
+    --bg-level-1: #0f1011;
+    --bg-level-2: #141516;
+    --bg-level-3: #191a1b;
+    --border-default: #23252a;
+    --border-hover: #34343a;
+    --primary-dim: rgba(94, 106, 210, 0.1);
+    --accent: #7170ff;
+    --text-primary: #f7f8f8;
+    --text-secondary: #d0d6e0;
+    --text-tertiary: #8a8f98;
+  }
+
+  .dark {
+    --background: 210 11% 4%;
+    --foreground: 180 14% 97%;
+
+    --card: 216 12% 8%;
+    --card-foreground: 180 14% 97%;
+
+    --popover: 223 11% 12%;
+    --popover-foreground: 180 14% 97%;
+
+    --primary: 234 55% 60%;
+    --primary-foreground: 180 14% 97%;
+
+    --secondary: 223 9% 15%;
+    --secondary-foreground: 180 14% 97%;
+
+    --muted: 223 9% 15%;
+    --muted-foreground: 218 24% 85%;
+
+    --accent: 240 100% 72%;
+    --accent-foreground: 180 14% 97%;
+
+    --destructive: 0 62.8% 30.6%;
+    --destructive-foreground: 180 14% 97%;
+
+    --border: 223 9% 15%;
+    --input: 223 9% 15%;
+    --ring: 240 100% 72%;
+
+    /* Design System Tokens (Mapped to linear-colortheme.json) */
+    --bg-level-0: #08090a;
+    --bg-level-1: #0f1011;
+    --bg-level-2: #141516;
+    --bg-level-3: #191a1b;
+    --border-default: #23252a;
+    --border-hover: #34343a;
+    --primary-dim: rgba(94, 106, 210, 0.1);
+    --accent: #7170ff;
+    --text-primary: #f7f8f8;
+    --text-secondary: #d0d6e0;
+    --text-tertiary: #8a8f98;
+  }
+
+  * {
+    @apply border-border;
+  }
+  body {
+    @apply bg-background text-foreground;
+  }
+
+  .grid-bg {
+    background-image: 
+      linear-gradient(to right, #23252a 1px, transparent 1px),
+      linear-gradient(to bottom, #23252a 1px, transparent 1px);
+    background-size: 40px 40px;
+    mask-image: linear-gradient(to bottom, transparent, black 10%, black 90%, transparent);
+  }
+
+  .linear-border {
+    border: 1px solid var(--border-default);
+  }
+
+  .glass-panel {
+    background: var(--bg-card, rgba(20, 21, 23, 0.7));
+    backdrop-filter: blur(12px);
+    border: 1px solid var(--border-base, var(--border-default));
+  }
+
+  .input-base {
+    background-color: var(--bg-input);
+    border: 1px solid var(--border-base);
+    color: var(--text-primary);
+    transition: border-color 0.2s, box-shadow 0.2s;
+  }
+  .input-base:focus-within {
+    border-color: var(--primary);
+    box-shadow: 0 0 0 1px var(--primary-muted);
+    outline: none;
+  }
+
+  .btn-primary {
+    background-color: var(--primary);
+    box-shadow: 0 0 15px var(--primary-glow);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+  }
+
+  .card-hover {
+    transition: all 0.2s ease;
+  }
+  .card-hover:hover {
+    background-color: var(--bg-level-2);
+    transform: translateY(-2px);
+    border-color: #3e4045;
+  }
+
+  .custom-scrollbar::-webkit-scrollbar {
+    width: 6px;
+  }
+  .custom-scrollbar::-webkit-scrollbar-track {
+    background: transparent;
+  }
+  .custom-scrollbar::-webkit-scrollbar-thumb {
+    background-color: #3f3f46;
+    border-radius: 3px;
+  }
+}
+
